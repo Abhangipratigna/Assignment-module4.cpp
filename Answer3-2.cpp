@@ -17,7 +17,7 @@ int sub()
 {
     return num1 - num2;
 }
-int div()
+float div()
 {
     return num1 / num2;
 }
