@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 class Car
@@ -18,24 +16,24 @@ public:
         return company;
     }
 
-    string getModel()
-    {
-        return model;
-    }
-
-    int getYear()
-    {
-        return year;
-    }
-
     void setCompany(const string &comp)
     {
         company = comp;
     }
 
+    string getModel()
+    {
+        return model;
+    }
+
     void setModel(const string &mdl)
     {
         model = mdl;
+    }
+
+    int getYear()
+    {
+        return year;
     }
 
     void setYear(int yr)
