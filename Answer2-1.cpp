@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 class calculator
@@ -15,29 +14,43 @@ public:
     }
     int sum()
     {
+        cout << "Sum: ";
         return num1 + num2;
     }
     int mul()
     {
+        cout << "Mul: ";
         return num1 * num2;
     }
     int sub()
     {
+        cout << "Sub:";
         return num1 - num2;
     }
-    float mod()
+    int mod()
     {
+        cout << "mod:";
         return num1 % num2;
     }
-    int div()
+    float div()
     {
+        cout << "div:";
         return num1 / num2;
     }
 };
 
 int main()
 {
-    calculator c1(20, 30);
+    int n1, n2;
+
+    cout << "Enter your number1 =" << endl;
+    cin >> n1;
+    cout << "Enter your number2 =" << endl;
+    cin >> n2;
+
+    cout << "----------------" << endl;
+
+    calculator c1(n1, n2);
     cout << c1.sum() << endl;
     cout << c1.mul() << endl;
     cout << c1.sub() << endl;
