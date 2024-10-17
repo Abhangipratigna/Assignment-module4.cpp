@@ -1,68 +1,76 @@
 #include <iostream>
-
 using namespace std;
 
-class student
+class Student
 {
 public:
     string name;
-    int rollnumber;
+    int rollno;
 
-    void get()
+    Student(string name, int rollno) : name(name), rollno(rollno) {}
+
+    void displaystudentinfo()
     {
-        cout << "Enter the name :" << endl;
-        cin >> name;
-        cout << "Enter the rollnumber :" << endl;
-        cin >> rollnumber;
+        cout << "Name: " << name << endl;
+        cout << "Roll no: " << rollno << endl;
     }
 };
 
-class mark
+class Mark
 {
 public:
-    int mark[4], i;
-    void in()
+    int mark[3];
+
+    Mark(int mark[])
     {
-        cout << "Enter the marks :" << endl;
-        for (i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
-            cin >> mark[i];
+            this->mark[i] = mark[i];
         }
     }
-};
 
-class process : public student, public mark
-{
-public:
-    int total;
-    float average;
-    void calculate()
+    void displaymark()
     {
-        total = mark[0] + mark[1] + mark[2] + mark[3];
-        average = total / 10;
-    }
-    void display()
-    {
-        cout << "Name :" << name << endl;
-        cout << "Rollnumber :" << rollnumber << endl;
-        cout << "Marks :";
-        for (i = 0; i < 4; i++)
+        cout << "Marks of 3 subject: ";
+        for (int i = 0; i < 3; i++)
         {
-            cout << mark[i] << " mark";
+            cout << mark[i] << " ";
         }
         cout << endl;
-        cout << "Total marks :" << total << endl;
-        cout << "Average :" << average << endl;
+    }
+};
+
+class result : public Student, public Mark
+{
+public:
+    result(string name, int rollno, int mark[]) : Student(name, rollno), Mark(mark) {}
+
+    void displaymarksheet()
+    {
+        displaystudentinfo();
+        displaymark();
     }
 };
 
 int main()
 {
-    process v;
-    v.get();
-    v.in();
-    v.calculate();
-    v.display();
+    string name;
+    int rollno, mark[3];
+
+    cout << "Enter name: ";
+    cin >> name;
+
+    cout << "Enter Rollno: ";
+    cin >> rollno;
+
+    cout << "Enter mark for 3 subject: ";
+    for (int i = 0; i < 3; i++)
+    {
+        cin >> mark[i];
+    }
+
+    result student(name, rollno, mark);
+    student.displaymark();
 
     return 0;
 }
