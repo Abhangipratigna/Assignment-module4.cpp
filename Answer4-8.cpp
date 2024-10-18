@@ -1,42 +1,41 @@
 #include <iostream>
-
 using namespace std;
 
-class overloading
+class Overloading
 {
 public:
-    int A, B;
+    int Add(int A, int B)
+    {
+        cout << "Addition:" << A + B << endl;
+    }
 
-    void Add(int A, int B)
+    int Sub(int A, int B)
     {
-        cout << "Addition " << A + B << endl;
+        cout << "Subtraction:" << A - B << endl;
     }
-    void sub(int A, int B)
+
+    int Mul(int A, int B)
     {
-        cout << "Subtraction " << A - B << endl;
+        cout << "Multiplication:" << A * B << endl;
     }
-    void mul(int A, int B)
+
+    float div(float A, float B)
     {
-        cout << "multiplication " << A * B << endl;
-    }
-    void div(int A, int B)
-    {
-        cout << " Division " << A / B << endl;
+        cout << "divison:" << A / B << endl;
     }
 };
 
 int main()
 {
-    int A, B;
-    cout << "Enter 1st number =";
-    cin >> A;
-    cout << "Enter 2nd number =";
-    cin >> B;
+    int num1, num2;
+    cout << "Enter your num1:";
+    cin >> num1;
+    cout << "Enter your num2:";
+    cin >> num2;
 
-    cout << "\nAddition = " << A + B;
-    cout << "\nSubtraction = " << A - B;
-    cout << "\nmultiplication = " << A * B;
-    cout << "\nDivision = " << A / B;
-
-    return 0;
+    Overloading O1;
+    O1.Add(num1, num2);
+    O1.Sub(num1, num2);
+    O1.Mul(num1, num2);
+    O1.div(num1, num2);
 }
