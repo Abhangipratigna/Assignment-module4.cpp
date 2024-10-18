@@ -1,56 +1,35 @@
 #include <iostream>
 using namespace std;
 
-class Employee
+class Base
 {
 public:
-    Employee(string name, int id, double salary)
-    {
-        this->name = name;
-        this->id = id;
-        this->salary = salary;
-    }
-
-    void displayinfo()
-    {
-        cout << "Name: " << name << endl;
-        cout << "ID: " << id << endl;
-        cout << "Salary: " << salary << endl;
-    }
+    int A;
 
 protected:
-    string name;
-    int id;
+    int B;
 
 private:
-    double salary;
+    int C;
 };
 
-class manager : public Employee
+class Derived : public Base
 {
 public:
-    manager(string name, int id, double salary, string department) : Employee(name, id, salary)
+    void display()
     {
-        this->department = department;
+        A = 200;
+        B = 400;
+        cout << "Public:" << A << endl;
+        cout << "protected:" << B << endl;
     }
-
-    void displayinfo()
-    {
-        Employee::displayinfo();
-        cout << "Department: " << department << endl;
-    }
-
-private:
-    string department;
 };
 
 int main()
 {
-    Employee emp("Ajay", 5, 80000);
-    emp.displayinfo();
-
-    manager mg("Niraj", 05, 70000, "master of business Adiministration");
-    mg.displayinfo();
+    Derived D1;
+    D1.display();
 
     return 0;
 }
+  
