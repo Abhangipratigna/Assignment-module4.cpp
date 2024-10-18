@@ -1,62 +1,52 @@
 #include <iostream>
 using namespace std;
 
-class student
+class Student
 {
 public:
-    int rollno;
-
-    student(int rollno) : rollno(rollno) {}
-
-    int getrollno()
+    int Roll;
+    void getRoll()
     {
-        return rollno;
+        cout << "\nEnter your Roll:";
+        cin >> Roll;
     }
 };
 
-class test : public student
+class Test
 {
 public:
-    int mark1;
-    int mark2;
-
-    test(int rollno, int mark1, int mark2) : student(rollno), mark1(mark1), mark2(mark2) {}
-
-    int totalmark()
+    float EnglishMarks, GujaratiMarks;
+    void getMarks()
     {
-        return mark1 + mark2;
+        cout << "\nEnter your english Subject Marks:";
+        cin >> EnglishMarks;
+        cout << "\nEnter your Gujarati subject Marks:";
+        cin >> GujaratiMarks;
     }
 };
 
-class result : public test
+class Result : public Test, public Student
 {
 public:
-    result(int rollno, int mark1, int mark2) : test(rollno, mark1, mark2) {}
-
-    void displayresult()
+    void getResult()
     {
-        cout << "roll no : " << getrollno() << endl;
-        cout << "mark1 : " << mark1 << endl;
-        cout << "mark2 : " << mark2 << endl;
-        cout << "total Mark : " << totalmark() << endl;
+        cout << "\nTotalMarks:" << EnglishMarks + GujaratiMarks << endl;
+    }
+
+    void getDisplay()
+    {
+        cout << "\nRoll:" << Roll;
+        cout << "\nEnglish Subject Marks:" << EnglishMarks;
+        cout << "\nGujarati subject Marks:" << GujaratiMarks;
+        cout << "\nTotalMarks:" << EnglishMarks + GujaratiMarks << endl;
     }
 };
 
 int main()
 {
-    int rollno, mark1, mark2;
-
-    cout << "Enter Roll No : ";
-    cin >> rollno;
-
-    cout << "Enter Mark1 : ";
-    cin >> mark1;
-
-    cout << "Enter Mark2 : ";
-    cin >> mark2;
-
-    result s1(rollno, mark1, mark2);
-    s1.displayresult();
-
-    return 0;
+    Result R1;
+    R1.getRoll();
+    R1.getMarks();
+    R1.getResult();
+    R1.getDisplay();
 }
