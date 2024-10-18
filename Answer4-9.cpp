@@ -1,67 +1,67 @@
 #include <iostream>
 using namespace std;
 
-class matrix
+class Matrix
 {
+    int a[3][3];
+
 public:
-    int *array;
-    int size;
-
-    matrix(int n)
+    int matrix()
     {
-        size = n;
-        array = new int[size];
-    }
-
-    matrix operator+(matrix &a)
-    {
-        matrix result(size);
-        for (int i = 0; i < size; i++)
+        int i;
+        cout << "\nEnter matrix Element (3 * 3):\n";
+        for (int i = 0; i < 3; i++)
         {
-            result.array[i] + a.array[i];
+            for (int j = 0; j < 3; j++)
+            {
+                cin >> a[i][j];
+            }
         }
-        return result;
     }
-    void print()
+    int display()
     {
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < 3; i++)
         {
-            cout << array[i] << " ";
+            for (int j = 0; j < 3; j++)
+            {
+                cout << a[i][j] << "\t";
+            }
+            cout << "\n";
         }
-        cout << endl;
+    }
+    int operator+(Matrix c)
+    {
+        int mat[3][3];
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                mat[i][j] = a[i][j] + c.a[i][j];
+            }
+        }
+        cout << "\n Addition of Matrix : \n\n";
+        for (int i = 0; i < 3; i++)
+        {
+            cout << " ";
+            for (int j = 0; j < 3; j++)
+            {
+                cout << mat[i][j] << "\t";
+            }
+            cout << "\n";
+        }
     }
 };
-
 int main()
 {
-    int n;
-    cout << "Size of matrix: ";
-    cin >> n;
+    Matrix a, b;
+    a.matrix();
+    b.matrix();
 
-    matrix A(n), B(n);
-
-    cout << "Element for A: ";
-    for (int i = 0; i < n; i++)
-    {
-        cin >> A.array[i];
-    }
-
-    cout << "Element for B: ";
-    for (int i = 0; i < n; i++)
-    {
-        cin >> B.array[i];
-    }
-
-    matrix C = A + B;
-
-    cout << "Matrix A: ";
-    A.print();
-
-    cout << "Matrix B: ";
-    B.print();
-
-    cout << "Matrix C (A + B): ";
-    C.print();
+    cout << "\n First Matrix : \n\n";
+    a.display();
+    cout << "\n Second Matrix : \n\n";
+    b.display();
+    a + b;
 
     return 0;
 }
