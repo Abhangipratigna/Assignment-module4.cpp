@@ -3,46 +3,37 @@ using namespace std;
 
 class Swap
 {
-private:
-    int a, b;
-
 public:
-    Swap(int x, int y) : a(x), b(y) {}
-
-    friend void swap(Swap &num);
-
-    void display()
+    int x, y;
+    void getData()
     {
-        cout << "Num1: " << a << endl;
-        cout << "Num2: " << b << endl;
+        cout << "Enter numbers for swapping:" << endl;
+        cin >> x;
+        cout << "Enter number for swapping:" << endl;
+        cin >> y;
     }
+    friend void swap(int x, int y);
 };
 
-void swap(Swap &num)
+void swap(Swap s)
 {
-    num.a = num.a + num.b;
-    num.b = num.a - num.b;
-    num.a = num.a - num.b;
+    s.x = s.x + s.y;
+    s.y = s.x - s.y;
+    s.x = s.x - s.y;
 }
+void Display(int x, int y)
+{
+    cout << "\nAfter swapping : " << endl;
+    cout << "x = " << x << endl;
+    cout << "y = " << y << endl;
+};
 
 int main()
 {
-    int num1, num2;
+    int x, y;
 
-    cout << "Enter one numbers: ";
-    cin >> num1;
-    cout << "Enter two numbers: ";
-    cin >> num2;
-
-    Swap num(num1, num2);
-
-    cout << "Before swapping:\n";
-    num.display();
-
-    swap(num);
-
-    cout << "After swapping:\n";
-    num.display();
-
-    return 0;
+    Swap S1;
+    S1.getData();
+    swap(S1.x, S1.y);
+    Display(S1.x, S1.y);
 }
